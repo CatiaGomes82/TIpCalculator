@@ -1,0 +1,27 @@
+.body {
+    background: var(--body-bg);
+    padding-block: 20px 40px;
+}
+
+.body__field {
+    display: flex;
+    align-items: center;
+    margin-block-start: 25px;
+}
+
+.body__label {
+    font-size: 1.4rem;
+    margin-inline-end: 20px;
+    flex: 1;
+}
+
+.body__input {
+    border: 2px solid var(--colour-primary);
+    color: var(--colour-primary);
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 7px;
+    flex: 3;
+    background-color: initial;
+}

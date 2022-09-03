@@ -1,0 +1,31 @@
+.header {
+    padding-block: 30px;
+    background: var(--header-bg);
+    box-shadow: 0px 0px 5px var(--footer-bg);
+    position: relative;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header__amount {
+    color: var(--body-color);
+    flex: 1 calc(50% - 10px);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.header__amount:nth-child(-n+2) {
+    color: var(--body-color-contrast);
+}
+
+.header__label {
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.2rem;
+    margin-block-end: 6px;
+}

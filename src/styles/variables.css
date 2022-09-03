@@ -1,0 +1,18 @@
+:root {
+    /* fonts */
+    --body-font: "Noto Sans Display", sans-serif;
+
+    /* colours */
+    --colour-primary: #339e93;
+    --colour-secondary: #cff8cc;
+
+    /* text colors */
+    --body-colour: #000000;
+    --body-color-contrast: #ffffff;
+
+    /* background colors */
+    --app-bg: var(--colour-secondary);
+    --header-bg: linear-gradient(180deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
+    --body-bg: #f2f2f2;
+    --footer-bg: var(--colour-secondary);
+}
