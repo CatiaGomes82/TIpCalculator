@@ -1,0 +1,17 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+  background: var(--app-bg);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 300px;
+  padding-inline: 30px;
+  margin-inline: auto;
+}
