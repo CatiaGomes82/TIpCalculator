@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { getTotalTip, getTotalSplit, getSplitTip, getTotalBill } from "../../utils/calculate";
-import { DEFAULT_BILL, DEFAULT_SPLIT, DEFAULT_TIP  } from "../../settings";
+import { DEFAULT_BILL, DEFAULT_SPLIT, DEFAULT_TIP } from "../../settings";
 import "./index.css";
 
 interface BodyProps {
@@ -13,8 +13,8 @@ const Body: React.FC<BodyProps> = ({ set, get }) => {
   const tipPercentage = useRef(DEFAULT_TIP);
   const currentBill = useRef(DEFAULT_BILL);
 
-  const setTotalBill = (value: number) => {
-    const totalBill = getTotalBill(value, tipPercentage.current);
+  const setTotalBill = (currentBill: number) => {
+    const totalBill = getTotalBill(currentBill, tipPercentage.current);
     set.setTotalBill(totalBill);
     return totalBill;
   };
@@ -41,7 +41,6 @@ const Body: React.FC<BodyProps> = ({ set, get }) => {
 
     currentBill.current = currentBillNumber;
 
-    setTotalTip(currentBillNumber);
     setSplit(totalBill, totalTip);
   };
 
@@ -49,19 +48,17 @@ const Body: React.FC<BodyProps> = ({ set, get }) => {
     const { value } = event.currentTarget;
     const totalTip = setTotalTip(get.totalBill);
 
-    const numberOfPeople = Number(value);
-    peopleSplittingBill.current = numberOfPeople;
+    peopleSplittingBill.current = Number(value);
 
     setSplit(get.totalBill, totalTip);
   };
 
   const handleTip = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
+    tipPercentage.current = Number(value);
+
     const totalBill = setTotalBill(currentBill.current);
     const totalTip = setTotalTip(currentBill.current);
-    const currentPercentageTip = Number(value);
-
-    tipPercentage.current = currentPercentageTip;
 
     setSplit(totalBill, totalTip);
   };
@@ -75,11 +72,11 @@ const Body: React.FC<BodyProps> = ({ set, get }) => {
         </div>
         <div className="body__field">
           <label className="body__label" htmlFor="tip">Tip</label>
-          <input className="body__input" onChange={handleTip} value={tipPercentage.current} id="tip" type="number" name="tip" min="1" />
+          <input className="body__input" onChange={handleTip} defaultValue={tipPercentage.current} id="tip" type="number" name="tip" min="1" />
         </div>
         <div className="body__field">
           <label className="body__label" htmlFor="split">Split</label>
-          <input className="body__input" onChange={handleSplit} value={peopleSplittingBill.current} id="split" type="number" name="split" min="1" />
+          <input className="body__input" onChange={handleSplit} defaultValue={peopleSplittingBill.current} id="split" type="number" name="split" min="1" />
         </div>
       </form>
     </div>
