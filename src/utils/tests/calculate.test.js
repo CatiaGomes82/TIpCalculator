@@ -1,4 +1,4 @@
-import { getTotalTip } from '../calculate';
+import { getTotalTip } from "../calculate";
 
 describe("Calculations Utils", () => {
   describe("get the total of tip from a bill", () => {
